@@ -19,6 +19,7 @@
 #include <stdint.h>
 #include <vector>
 #include <deque>
+#include <CMath>
 #include "HnavMessage.h"
 
 
