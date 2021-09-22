@@ -157,7 +157,7 @@ void HnavDecoder::DecodeMessage(HnavMessage &message) {
   message.SetPitchDeg(static_cast<double>(static_cast<int16_t >(temp_pitch)) * kHnavOrientationScale);
 
   uint16_t temp_heading = data_.at(37) | (static_cast<uint16_t>(data_.at(38))<< 8);
-  message.SetHeadingDeg(static_cast<double>(static_cast<int16_t >(temp_heading)) * kHnavOrientationScale);
+  message.SetHeadingDeg(static_cast<double>(temp_heading) * kHnavOrientationScale);
 
   uint16_t temp_vel_fwd = data_.at(39) | (static_cast<uint16_t>(data_.at(40))<< 8);
   message.SetVelocityFwdMetresPerSecond(static_cast<double>(static_cast<int16_t >(temp_vel_fwd)) * kHnavVelocityScale);
@@ -192,10 +192,10 @@ void HnavDecoder::DecodeMessage(HnavMessage &message) {
   message.SetPositionQualityCep50(static_cast<double>(static_cast<float>(position_quality_result)) * kHnavPositionQualityScale);
 
   uint16_t temp_heading_quality = data_.at(59) | (static_cast<uint16_t>(data_.at(60))<< 8);
-  message.SetHeadingQualityDegrees(static_cast<double>(static_cast<int16_t >(temp_heading_quality)) * kHnaveHeadingQualityScale);
+  message.SetHeadingQualityDegrees(static_cast<double>(temp_heading_quality) * kHnaveHeadingQualityScale);
 
   uint16_t temp_velocity_quality = data_.at(61) | (static_cast<uint16_t>(data_.at(62))<< 8);
-  message.SetVelocityQualityMilliMetresPerSecond(static_cast<double>(static_cast<int16_t >(temp_velocity_quality)) * kHnavVelocityQualityScale);
+  message.SetVelocityQualityMilliMetresPerSecond(static_cast<double>(temp_velocity_quality) * kHnavVelocityQualityScale);
 
   uint16_t temp_status = data_.at(63) | (static_cast<uint16_t>(data_.at(64))<< 8);
 
